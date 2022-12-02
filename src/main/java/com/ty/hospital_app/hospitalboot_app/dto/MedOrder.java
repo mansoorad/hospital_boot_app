@@ -2,6 +2,7 @@ package com.ty.hospital_app.hospitalboot_app.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ public class MedOrder {
 	private String medOrdersName;
 	private String medOrdersDate;
 	@OneToMany
+	(cascade = CascadeType.ALL)
 	private List<Items> items;
 
 	public int getMedOrdersId() {
