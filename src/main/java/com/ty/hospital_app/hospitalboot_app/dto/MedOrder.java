@@ -2,6 +2,7 @@ package com.ty.hospital_app.hospitalboot_app.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +16,18 @@ public class MedOrder {
 	private int medOrdersId;
 	private String medOrdersName;
 	private String medOrdersDate;
+	private double totalCost;
 	@OneToMany
+	(cascade = CascadeType.ALL)
 	private List<Items> items;
+
+	public double getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(double totalCost) {
+		this.totalCost = totalCost;
+	}
 
 	public int getMedOrdersId() {
 		return medOrdersId;
