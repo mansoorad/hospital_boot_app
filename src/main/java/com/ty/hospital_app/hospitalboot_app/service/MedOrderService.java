@@ -20,6 +20,13 @@ public class MedOrderService {
 
 	public ResponseEntity<ResponseStructure<MedOrder>> saveMedOrder(MedOrder medOrder) {
 		ResponseStructure<MedOrder> responseStructure = new ResponseStructure<MedOrder>();
+		List<Items> items=medOrder.getItems();
+		double totalcost=0;
+		for (Items items2 : items) {
+			totalcost=totalcost+(items2.getItemPrice()* items2.getItemQuantity());
+		}
+		totalcost=(totalcost*0.18)+totalcost;
+		medOrder.setTotalCost(totalcost);
 		responseStructure.setStatus(HttpStatus.CREATED.value());
 		responseStructure.setMessage("medorder saved");
 		responseStructure.setData(dao.saveMedOrder(medOrder));
@@ -35,6 +42,12 @@ public class MedOrderService {
 
 		if (medOrder2 != null) {
 			List<Items> items = medOrder.getItems();
+			double totalcost=0;
+			for (Items items2 : items) {
+				totalcost=totalcost+(items2.getItemPrice()* items2.getItemQuantity());
+			}
+			totalcost=(totalcost*0.18)+totalcost;
+			medOrder.setTotalCost(totalcost);
 			medOrder.setMedOrdersId(id);
 			medOrder.setItems(items);
 			responseStructure.setStatus(HttpStatus.OK.value());

@@ -16,9 +16,18 @@ public class MedOrder {
 	private int medOrdersId;
 	private String medOrdersName;
 	private String medOrdersDate;
+	private double totalCost;
 	@OneToMany
 	(cascade = CascadeType.ALL)
 	private List<Items> items;
+
+	public double getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(double totalCost) {
+		this.totalCost = totalCost;
+	}
 
 	public int getMedOrdersId() {
 		return medOrdersId;
