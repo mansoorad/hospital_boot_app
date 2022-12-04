@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("items")
 public class ItemsController {
 	@Autowired
-	ItemsService itemsService;
+	private ItemsService itemsService;
 
 	@ApiOperation(value = "save items", notes = "method used to save item ")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "created"),

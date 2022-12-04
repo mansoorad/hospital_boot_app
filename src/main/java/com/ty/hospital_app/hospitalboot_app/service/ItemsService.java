@@ -12,7 +12,7 @@ import com.ty.hospital_app.hospitalboot_app.util.ResponseStructure;
 @Service
 public class ItemsService {
 	@Autowired
-	ItemsDao itemsdao;
+	private ItemsDao itemsdao;
 
 	public ResponseEntity<ResponseStructure<Items>> saveItems(Items items) {
 		ResponseStructure<Items> responseStructure = new ResponseStructure<Items>();

@@ -16,16 +16,16 @@ import com.ty.hospital_app.hospitalboot_app.util.ResponseStructure;
 @Service
 public class MedOrderService {
 	@Autowired
-	MedOrderDao dao;
+	private MedOrderDao dao;
 
 	public ResponseEntity<ResponseStructure<MedOrder>> saveMedOrder(MedOrder medOrder) {
 		ResponseStructure<MedOrder> responseStructure = new ResponseStructure<MedOrder>();
-		List<Items> items=medOrder.getItems();
-		double totalcost=0;
+		List<Items> items = medOrder.getItems();
+		double totalcost = 0;
 		for (Items items2 : items) {
-			totalcost=totalcost+(items2.getItemPrice()* items2.getItemQuantity());
+			totalcost = totalcost + (items2.getItemPrice() * items2.getItemQuantity());
 		}
-		totalcost=(totalcost*0.18)+totalcost;
+		totalcost = (totalcost * 0.18) + totalcost;
 		medOrder.setTotalCost(totalcost);
 		responseStructure.setStatus(HttpStatus.CREATED.value());
 		responseStructure.setMessage("medorder saved");
@@ -42,11 +42,11 @@ public class MedOrderService {
 
 		if (medOrder2 != null) {
 			List<Items> items = medOrder.getItems();
-			double totalcost=0;
+			double totalcost = 0;
 			for (Items items2 : items) {
-				totalcost=totalcost+(items2.getItemPrice()* items2.getItemQuantity());
+				totalcost = totalcost + (items2.getItemPrice() * items2.getItemQuantity());
 			}
-			totalcost=(totalcost*0.18)+totalcost;
+			totalcost = (totalcost * 0.18) + totalcost;
 			medOrder.setTotalCost(totalcost);
 			medOrder.setMedOrdersId(id);
 			medOrder.setItems(items);
@@ -63,7 +63,7 @@ public class MedOrderService {
 
 	}
 
-	public ResponseEntity<ResponseStructure<String>> deleteMedOrder( int id) {
+	public ResponseEntity<ResponseStructure<String>> deleteMedOrder(int id) {
 		MedOrder medOrder2 = dao.getMedOrderById(id);
 		ResponseStructure<String> responseStructure = new ResponseStructure<String>();
 
