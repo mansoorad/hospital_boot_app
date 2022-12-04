@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("medorder")
 public class MedOrderController {
 	@Autowired
-	MedOrderService medOrderService;
+	private MedOrderService medOrderService;
 
 	@ApiOperation(value = "save medorder", notes = "method used to save medorder ")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "created"),

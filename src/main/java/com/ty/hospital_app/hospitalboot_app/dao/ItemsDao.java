@@ -9,7 +9,7 @@ import com.ty.hospital_app.hospitalboot_app.repository.ItemsRepository;
 @Repository
 public class ItemsDao {
 	@Autowired
-	ItemsRepository itemrepository;
+	private ItemsRepository itemrepository;
 
 	public Items saveItems(Items items) {
 		return itemrepository.save(items);
