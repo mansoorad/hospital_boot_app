@@ -1,5 +1,4 @@
 package com.ty.hospital_app.hospitalboot_app.service;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +8,6 @@ import com.ty.hospital_app.hospitalboot_app.dao.BranchesDao;
 import com.ty.hospital_app.hospitalboot_app.dto.Branches;
 import com.ty.hospital_app.hospitalboot_app.exception.NoSuchIdFoundException;
 import com.ty.hospital_app.hospitalboot_app.util.ResponseStructure;
-
 @Service
 public class BranchesService {
 

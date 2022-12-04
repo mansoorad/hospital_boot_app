@@ -1,5 +1,4 @@
 package com.ty.hospital_app.hospitalboot_app.dao;
-
 import java.util.Optional;
 
 
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ty.hospital_app.hospitalboot_app.dto.Address;
 import com.ty.hospital_app.hospitalboot_app.repository.AddressRepository;
-
 
 @Repository
 public class AddressDao {
