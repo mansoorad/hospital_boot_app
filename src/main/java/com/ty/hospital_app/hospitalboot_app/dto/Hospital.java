@@ -2,11 +2,14 @@ package com.ty.hospital_app.hospitalboot_app.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Hospital {
@@ -15,7 +18,8 @@ public class Hospital {
 	private int hospitalId;
 	private String hospitalName;
 	private long hospitalPhone;
-	@OneToMany
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Branches> branches;
 
 	public int getHospitalId() {
